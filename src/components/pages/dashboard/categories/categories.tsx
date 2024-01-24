@@ -15,14 +15,14 @@ export default function Categories() {
   const [show, setShow] = useState<boolean>(false);
   const [showDeleteModal, setShowDeleteModal] = useState<boolean>(false);
   const [isUpdate, setIsUpdate] = useState<boolean>(false);
-  const [categories, setCategories] = useState([]);
-  const [categoriesId, setCategoriesId] = useState();
+  const [categories, setCategories] = useState<any>([]);
+  const [categoriesId, setCategoriesId] = useState<any>();
 
   
   const [category, setCategory] = useState<any>({
     name: "",
   });
-  const [active, setActive] = useState(1);
+  const [active, setActive] = useState<any>(1);
   const step = 8;
   const { data: res, isLoading: isProductLoading } = useCategories();
   const { mutateAsync: create, isLoading: isCreateLoading } =
@@ -42,7 +42,7 @@ export default function Categories() {
     const { name, value } = e.target;
     setCategory({ [name]: value });
   };
-  const handleJump = (number) => {
+  const handleJump = (number: any) => {
     setActive(number);
   };
   const handleOnSubmit = () => {
@@ -189,7 +189,7 @@ export default function Categories() {
                     </tr>
                   </thead>
                   <tbody>
-                    {categories?.map((cat) => {
+                    {categories?.map((cat: any) => {
                       return (
                         <tr>
                           <td>{cat?.id}</td>
